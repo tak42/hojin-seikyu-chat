@@ -1,0 +1,64 @@
+.container {
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  padding: 16px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.controlPanel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.drawmodechangebtn {
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.drawModeSelectBtnActive {
+  composes: drawmodechangebtn;
+  background-color: #4caf50;
+}
+
+.drawModeSelectBtnDeactivated {
+  composes: drawmodechangebtn;
+  background-color: #f44336;
+}
+
+.pdfDisplay {
+  position: relative;
+  display: inline-block;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.canvasActive {
+  composes: canvas;
+  pointer-events: auto;
+  cursor: crosshair;
+}
+
+.canvasDeactivated {
+  composes: canvas;
+  pointer-events: none;
+  cursor: default;
+}
