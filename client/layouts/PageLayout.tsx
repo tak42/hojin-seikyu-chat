@@ -1,3 +1,4 @@
+'use client';
 import type { UserDto } from 'common/types/user';
 import { Loading } from 'components/loading/Loading';
 import { useLoading } from 'components/loading/useLoading';
