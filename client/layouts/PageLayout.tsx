@@ -1,4 +1,3 @@
-'use client';
 import type { UserDto } from 'common/types/user';
 import { Loading } from 'components/loading/Loading';
 import { useLoading } from 'components/loading/useLoading';
@@ -6,12 +5,11 @@ import { useAlert } from 'hooks/useAlert';
 import { useConfirm } from 'hooks/useConfirm';
 import { useUser } from 'hooks/useUser';
 import { BasicHeader } from 'layouts/basicHeader/BasicHeader';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import React from 'react';
 import { pagesPath } from 'utils/$path';
 
 export const PageLayout = (props: { render: (user: UserDto) => React.ReactNode }) => {
-  const router = useRouter();
   const { user } = useUser();
   const { loadingElm } = useLoading();
   const { alertElm } = useAlert();
@@ -20,7 +18,7 @@ export const PageLayout = (props: { render: (user: UserDto) => React.ReactNode }
   if (!user.inited) {
     return <Loading visible />;
   } else if (user.data === null) {
-    void router.replace(pagesPath.login.$url().path);
+    void redirect(pagesPath.login.$url().path);
 
     return <Loading visible />;
   }
